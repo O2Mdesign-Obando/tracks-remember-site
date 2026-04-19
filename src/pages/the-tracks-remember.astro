@@ -1,0 +1,45 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Hero from '../components/Hero.astro';
+import Section from '../components/Section.astro';
+---
+
+<BaseLayout
+  title="The Tracks Remember | Reflective Travel Narrative"
+  description="Explore The Tracks Remember, a reflective journey through England, memory, family, and place."
+>
+  <Hero
+    title="The Tracks Remember"
+    subtitle="A reflective journey across England, memory, family, and place."
+  />
+
+  <Section className="book-page">
+    <div class="book-layout">
+      <img
+        class="book-cover"
+        src="/covers/tracks-remember.jpg"
+        alt="Cover of The Tracks Remember"
+      />
+
+      <div>
+        <p>
+          The Tracks Remember is a calm, reflective travel narrative shaped by movement
+          across England and by the inner landscapes that travel awakens.
+        </p>
+        <p>
+          Through trains, cities, coastlines, castles, and quiet moments of family life,
+          the book explores the way memory and presence meet—how places can hold meaning,
+          how travel can deepen connection, and how a journey can become something greater
+          than distance.
+        </p>
+        <p>
+          It is a story of observation, emotion, and return.
+        </p>
+      </div>
+    </div>
+  </Section>
+
+    <Section title="Find the book">
+    <p>Available through Amazon and expanded distribution channels soon.</p>
+  </Section>
+</BaseLayout>

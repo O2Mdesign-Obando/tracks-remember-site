@@ -1,0 +1,83 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Hero from '../components/Hero.astro';
+import Section from '../components/Section.astro';
+---
+
+<BaseLayout
+  title="The Tracks Remember | A Journey Told in Two Ways"
+  description="Discover The Tracks Remember and Trains and Castles—two companion books telling one journey across England through reflection and wonder."
+>
+  <Hero
+    title="The Tracks Remember"
+    subtitle="A journey across England. A return to something deeper."
+    text="A story told in two ways—through reflection and through wonder."
+    primaryHref="/the-tracks-remember"
+    primaryLabel="Explore the Story"
+    secondaryHref="/trains-and-castles"
+    secondaryLabel="Explore with Saúl"
+  />
+
+  <Section className="books-grid">
+    <div class="grid two-up">
+      <article class="card">
+        <img src="/covers/tracks-remember.jpg" alt="Cover of The Tracks Remember" />
+        <h2>The Tracks Remember</h2>
+        <p>
+          A reflective journey through memory, place, family, and meaning—told
+          through landscapes, quiet observations, and the inner movement of travel.
+        </p>
+        <a class="text-link" href="/the-tracks-remember">Explore the Story</a>
+      </article>
+
+      <article class="card">
+        <img src="/covers/trains-castles.jpg" alt="Cover of Trains and Castles" />
+        <h2>Trains and Castles</h2>
+        <p>
+          The same adventure, seen through a child’s eyes—full of trains, castles,
+          questions, movement, and wonder.
+        </p>
+        <a class="text-link" href="/trains-and-castles">Explore with Saúl</a>
+      </article>
+    </div>
+  </Section>
+
+  <Section title="Two books. One journey.">
+    <p>
+      These two books share the same path, but not the same voice.
+      One remembers. The other lives it.
+      Together, they offer two ways of seeing a journey across England—through
+      reflection and through wonder.
+    </p>
+  </Section>
+
+  <Section title="The journey">
+    <p>
+      From New York to London, York, Bamburgh, Lindisfarne, Edinburgh, and back again,
+      the journey moves through places filled with history, emotion, and discovery.
+    </p>
+    <p>
+      What changes along the way is not only the landscape, but the way it is seen.
+    </p>
+  </Section>
+
+  <Section title="Continue the journey online">
+    <p>
+      This site extends the experience beyond the printed page—with book details,
+      companion content, and future additions that continue the story.
+    </p>
+    <p>This is the beginning of the digital side of the journey.</p>
+  </Section>
+
+  <Section title="About the author">
+    <p>
+      Jorge R. Obando writes about memory, movement, family, and the quiet meaning
+      carried inside ordinary moments.
+    </p>
+    <p>
+      The Tracks Remember and Trains and Castles were created as companion works—two ways
+      of telling one shared journey.
+    </p>
+    <a class="text-link" href="/about">About Jorge</a>
+  </Section>
+</BaseLayout>

@@ -1,0 +1,51 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Hero from '../components/Hero.astro';
+import Section from '../components/Section.astro';
+---
+
+<BaseLayout
+  title="Trains and Castles | A Child-Friendly Travel Companion"
+  description="Discover Trains and Castles, a child-focused companion book filled with trains, castles, curiosity, and wonder."
+>
+  <Hero
+    title="Trains and Castles"
+    subtitle="A child’s-eye journey through trains, castles, cities, and wonder."
+  />
+
+  <Section className="book-page">
+    <div class="book-layout">
+      <img
+        class="book-cover"
+        src="/covers/trains-castles.jpg"
+        alt="Cover of Trains and Castles"
+      />
+
+      <div>
+        <p>
+          Trains and Castles follows the same journey as The Tracks Remember, but through
+          the eyes of a child.
+        </p>
+        <p>
+          With movement, curiosity, and imagination at its center, it invites young readers
+          into an adventure shaped by train rides, new places, old stones, big questions,
+          and the excitement of seeing the world unfold.
+        </p>
+        <p>
+          It is simple, warm, and full of wonder.
+        </p>
+      </div>
+    </div>
+  </Section>
+
+  <Section title="A companion to the journey">
+    <p>
+      This book was created as a companion to The Tracks Remember, offering a lighter,
+      child-friendly way to experience the same path.
+    </p>
+  </Section>
+
+  <Section title="Find the book">
+    <p>Available through Amazon and expanded distribution channels soon.</p>
+  </Section>
+</BaseLayout>
