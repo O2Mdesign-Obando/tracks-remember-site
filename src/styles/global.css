@@ -276,3 +276,9 @@ h2 {
 .home-social-continue a:hover {
   text-decoration: underline;
 }
+
+.grid.one-up {
+  display: grid;
+  grid-template-columns: 1fr;
+  max-width: 520px;
+}
