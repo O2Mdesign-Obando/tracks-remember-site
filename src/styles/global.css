@@ -282,3 +282,53 @@ h2 {
   grid-template-columns: 1fr;
   max-width: 520px;
 }
+
+.related-community {
+margin: 72px 0 0;
+padding: 40px;
+border: 1px solid rgba(49, 45, 40, 0.14);
+display: grid;
+grid-template-columns: 96px 1fr;
+gap: 32px;
+align-items: center;
+background: rgba(255, 255, 255, 0.18);
+}
+
+.related-community-mark {
+  width: 96px;
+  height: 96px;
+  border: 1px solid rgba(49, 45, 40, 0.12);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.1rem;
+  color: #312d28;
+}
+
+.related-community h2 {
+font-size: 1.6rem;
+margin-bottom: 12px;
+}
+
+.related-community p {
+font-size: 1.08rem;
+line-height: 1.6;
+margin-bottom: 24px;
+max-width: 720px;
+}
+
+.related-community-link {
+display: inline-block;
+padding: 12px 18px;
+border: 1px solid rgba(49, 45, 40, 0.16);
+text-decoration: none;
+font-family: Arial, sans-serif;
+font-size: 0.82rem;
+letter-spacing: 0.04em;
+}
+
+@media (max-width: 700px) {
+  .related-community {
+    grid-template-columns: 1fr;
+  }
+}
