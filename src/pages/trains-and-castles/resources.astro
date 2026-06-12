@@ -1,0 +1,114 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Hero from '../../components/Hero.astro';
+import Section from '../../components/Section.astro';
+---
+
+<BaseLayout
+  title="Trains and Castles Resources for Parents, Teachers, and Libraries"
+  description="Resources for parents, teachers, and libraries using Trains and Castles, including comic companion chapters and printable coloring pages for young readers."
+>
+  <Hero
+    title="Trains and Castles Resources"
+    subtitle="For parents, teachers, libraries, and young readers."
+    text="Trains and Castles is a children's companion book about travel, imagination, curiosity, and wonder. It follows a young reader's journey through trains, castles, cities, and quiet moments of discovery."
+    primaryHref="#companion-materials"
+    primaryLabel="Explore Materials"
+    secondaryHref="/trains-and-castles"
+    secondaryLabel="About the Book"
+  />
+
+  <Section>
+    <div class="intro-panel">
+      <p>
+        This site now includes public companion materials for <em>Trains and Castles</em>:
+        comic-style chapters to read and printable coloring pages to use at home, in
+        classrooms, or in library settings.
+      </p>
+      <p>
+        The materials are meant to extend the book gently, giving young readers more ways
+        to spend time with the journey without turning it into a hard sell or a formal program.
+      </p>
+    </div>
+  </Section>
+
+  <Section title="Who this is for">
+    <div class="resource-audience-grid">
+      <article class="card resource-card">
+        <h2>For Parents</h2>
+        <p>
+          Use the book as a quiet family reading experience, a travel-inspired bedtime story,
+          or a way to extend a child's curiosity about trains, castles, places, and memory.
+        </p>
+        <p>
+          The comics and printable coloring pages can support screen-light activities,
+          conversation starters, and a simple way to keep the story close after reading.
+        </p>
+      </article>
+
+      <article class="card resource-card">
+        <h2>For Teachers</h2>
+        <p>
+          Teachers can use the story and companion materials to support reading, discussion,
+          drawing, sequencing, storytelling, and place-based curiosity.
+        </p>
+        <p>
+          The comic chapters offer a visual storytelling extension, while coloring pages give
+          students a calm, printable way to respond to scenes and ideas from the book.
+        </p>
+      </article>
+
+      <article class="card resource-card">
+        <h2>For Libraries</h2>
+        <p>
+          Libraries can share the book with families, young readers, and local-author
+          audiences, while the companion comics and coloring pages create simple ways to
+          extend the experience.
+        </p>
+        <p>
+          The printable pages can fit naturally with children's collection discovery,
+          family reading, activity tables, or quiet passive programming.
+        </p>
+      </article>
+    </div>
+  </Section>
+
+  <Section title="Companion Materials" className="resources-materials-section">
+    <div id="companion-materials" class="grid two-up">
+      <article class="card resource-card">
+        <h2>Read the Comics</h2>
+        <p>
+          Explore comic-style companion chapters inspired by the book, organized by chapter
+          with local page previews and whole-chapter PDF downloads.
+        </p>
+        <a class="text-link" href="/trains-and-castles/comics">Read the Comics</a>
+      </article>
+
+      <article class="card resource-card">
+        <h2>Printable Coloring Pages</h2>
+        <p>
+          Print coloring pages for young readers, families, teachers, and libraries, with
+          individual view and download links for each page.
+        </p>
+        <a class="text-link" href="/trains-and-castles/coloring-pages">Explore Coloring Pages</a>
+      </article>
+    </div>
+  </Section>
+
+  <Section title="About the book">
+    <p>
+      <em>Trains and Castles</em> follows the same journey as <em>The Tracks Remember</em>,
+      but through the eyes of a child. It is built around travel, curiosity, and the wonder
+      of seeing unfamiliar places for the first time.
+    </p>
+    <a class="button" href="/trains-and-castles">Learn More About the Book</a>
+    <a
+      class="button button-secondary"
+      href="https://a.co/d/08TJjA3Z"
+      target="_blank"
+      rel="noopener noreferrer"
+    >
+      View on Amazon
+    </a>
+  </Section>
+</BaseLayout>
