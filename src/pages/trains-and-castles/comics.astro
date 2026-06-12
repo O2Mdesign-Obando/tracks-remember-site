@@ -1,0 +1,133 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Hero from '../../components/Hero.astro';
+import Section from '../../components/Section.astro';
+
+const chapterPageCounts = [13, 16, 15, 15, 16, 16, 16, 16, 16, 16, 16, 16];
+
+const chapters = chapterPageCounts.map((pageCount, index) => {
+  const chapterNumber = index + 1;
+  const chapterLabel = String(chapterNumber).padStart(2, '0');
+
+  return {
+    number: chapterNumber,
+    label: `Chapter ${chapterNumber}`,
+    anchor: `chapter-${chapterLabel}`,
+    pdf: `/trains-and-castles/comics/downloads/chapter-${chapterLabel}-comic.pdf`,
+    pages: Array.from({ length: pageCount }, (_, pageIndex) => {
+      const pageNumber = pageIndex + 1;
+      const pageLabel = String(pageNumber).padStart(2, '0');
+
+      return {
+        number: pageNumber,
+        src: `/trains-and-castles/comics/chapter-${chapterLabel}/page-${pageLabel}.png`,
+      };
+    }),
+  };
+});
+---
+
+<BaseLayout
+  title="Trains and Castles Comics | Companion Comic Chapters"
+  description="Read Trains and Castles comic companion chapters for young readers, families, teachers, and libraries, inspired by Jorge R. Obando's children's book."
+>
+  <Hero
+    title="Trains and Castles Comics"
+    subtitle="Comic-style companion chapters for young readers and families."
+    text="Read comic-style companion chapters inspired by Trains and Castles. These pages extend the journey for young readers, families, teachers, and libraries."
+    primaryHref="#chapters"
+    primaryLabel="Choose a Chapter"
+    secondaryHref="/trains-and-castles"
+    secondaryLabel="Back to the Book"
+  />
+
+  <Section>
+    <div class="intro-panel">
+      <p>
+        These comic chapters continue the world of <em>Trains and Castles</em> through
+        visual moments, movement, and small discoveries.
+      </p>
+      <p>
+        Use the chapter index to jump to a section, open the chapter to read the pages,
+        or download a whole-chapter PDF where helpful for home, classroom, or library use.
+      </p>
+    </div>
+  </Section>
+
+  <Section title="Comic Chapters" className="comics-index-section">
+    <nav id="chapters" class="chapter-index" aria-label="Comic chapter navigation">
+      {chapters.map((chapter) => (
+        <a href={`#${chapter.anchor}`}>
+          <span>{chapter.label}</span>
+          <small>{chapter.pages.length} pages</small>
+        </a>
+      ))}
+    </nav>
+  </Section>
+
+  <Section className="comics-chapters-section">
+    <div class="chapter-list">
+      {chapters.map((chapter, index) => (
+        <details class="chapter-block" id={chapter.anchor} open={index === 0}>
+          <summary>
+            <span>
+              <strong>{chapter.label}</strong>
+              <small>{chapter.pages.length} comic pages</small>
+            </span>
+            <span class="chapter-summary-action">Open</span>
+          </summary>
+
+          <div class="chapter-tools">
+            <a class="button button-secondary" href={chapter.pdf} target="_blank" rel="noopener noreferrer">
+              Download {chapter.label} PDF
+            </a>
+          </div>
+
+          <div class="comic-pages-grid">
+            {chapter.pages.map((page) => (
+              <figure class="comic-page-card">
+                <a href={page.src} target="_blank" rel="noopener noreferrer">
+                  <img
+                    src={page.src}
+                    alt={`Trains and Castles comic chapter ${chapter.number} page ${page.number}`}
+                    loading="lazy"
+                    width="1536"
+                    height="1024"
+                  />
+                </a>
+                <figcaption>{chapter.label}, Page {page.number}</figcaption>
+              </figure>
+            ))}
+          </div>
+        </details>
+      ))}
+    </div>
+  </Section>
+
+  <Section title="More for young readers">
+    <p>
+      Continue the journey with printable coloring pages inspired by the same book.
+    </p>
+    <a class="button" href="/trains-and-castles/coloring-pages">Explore Coloring Pages</a>
+  </Section>
+
+  <Section title="About Trains and Castles">
+    <p>
+      <em>Trains and Castles</em> follows a shared journey through England from a child's
+      point of view, full of trains, castles, cities, questions, and wonder.
+    </p>
+    <a class="button" href="/trains-and-castles">Learn More About the Book</a>
+  </Section>
+
+  <Section title="Find the book">
+    <p>Available on Amazon.</p>
+    <a
+      class="button"
+      href="https://a.co/d/08TJjA3Z"
+      target="_blank"
+      rel="noopener noreferrer"
+    >
+      View on Amazon
+    </a>
+  </Section>
+</BaseLayout>
