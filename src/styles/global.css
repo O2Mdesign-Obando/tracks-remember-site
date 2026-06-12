@@ -146,6 +146,10 @@ h2 {
   margin-top: 0.75rem;
 }
 
+.section .button + .button {
+  margin-left: 0.75rem;
+}
+
 .grid.two-up {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -176,6 +180,68 @@ h2 {
 
 .text-link:hover {
   text-decoration: underline;
+}
+
+.intro-panel {
+  max-width: 760px;
+}
+
+.print-note {
+  color: var(--muted);
+  font-size: 0.95rem;
+  font-style: italic;
+}
+
+.coloring-gallery-section {
+  padding-top: 1rem;
+}
+
+.coloring-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1.25rem;
+}
+
+.coloring-card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  overflow: hidden;
+}
+
+.coloring-preview-link {
+  display: block;
+  background: white;
+  border-bottom: 1px solid var(--border);
+}
+
+.coloring-card img {
+  width: 100%;
+  aspect-ratio: 3 / 2;
+  object-fit: contain;
+  padding: 0.75rem;
+  border-radius: 0;
+}
+
+.coloring-card-body {
+  padding: 1rem;
+}
+
+.coloring-card-body h2 {
+  font-size: 1.2rem;
+  margin-bottom: 0.35rem;
+}
+
+.coloring-card-body p {
+  color: var(--muted);
+  font-size: 0.95rem;
+  margin: 0;
+}
+
+.coloring-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
 }
 
 .book-layout {
@@ -213,6 +279,20 @@ h2 {
 
   .hero {
     padding-top: 3rem;
+  }
+
+  .section .button + .button {
+    margin-left: 0;
+  }
+
+  .coloring-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 620px) {
+  .coloring-grid {
+    grid-template-columns: 1fr;
   }
 }
 

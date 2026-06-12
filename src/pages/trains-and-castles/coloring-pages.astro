@@ -1,0 +1,98 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Hero from '../../components/Hero.astro';
+import Section from '../../components/Section.astro';
+
+const coloringPages = Array.from({ length: 27 }, (_, index) => {
+  const fileNumber = String(index).padStart(2, '0');
+  const displayNumber = String(index + 1).padStart(2, '0');
+  const filename = `coloring-travel-p${fileNumber}.png`;
+
+  return {
+    title: `Coloring Page ${displayNumber}`,
+    src: `/trains-and-castles/coloring-pages/${filename}`,
+    filename,
+  };
+});
+---
+
+<BaseLayout
+  title="Trains and Castles Coloring Pages | Printable Activities for Young Readers"
+  description="Printable Trains and Castles coloring pages for young readers, families, teachers, and libraries, inspired by Jorge R. Obando's children's book."
+>
+  <Hero
+    title="Trains and Castles Coloring Pages"
+    subtitle="Printable pages for young readers, families, teachers, and libraries."
+    text="These coloring pages are inspired by Trains and Castles, a child-friendly companion to The Tracks Remember."
+    primaryHref="#coloring-pages"
+    primaryLabel="View the Pages"
+    secondaryHref="/trains-and-castles"
+    secondaryLabel="Back to the Book"
+  />
+
+  <Section>
+    <div class="intro-panel">
+      <p>
+        Printable coloring pages inspired by <em>Trains and Castles</em>, created for young
+        readers, families, teachers, and libraries.
+      </p>
+      <p>
+        Each page connects to the book's journey through trains, travel, places, and
+        imagination. They can be viewed online or downloaded individually for printing.
+      </p>
+      <p class="print-note">
+        These pages work best printed on standard letter-size paper.
+      </p>
+    </div>
+  </Section>
+
+  <Section title="Printable Coloring Pages" className="coloring-gallery-section">
+    <div id="coloring-pages" class="coloring-grid">
+      {coloringPages.map((page) => (
+        <article class="coloring-card">
+          <a href={page.src} target="_blank" rel="noopener noreferrer" class="coloring-preview-link">
+            <img
+              src={page.src}
+              alt={`${page.title} from Trains and Castles, a printable coloring page for children.`}
+              loading="lazy"
+              width="1536"
+              height="1024"
+            />
+          </a>
+          <div class="coloring-card-body">
+            <h2>{page.title}</h2>
+            <p>Printable Trains and Castles coloring sheet.</p>
+            <div class="coloring-actions">
+              <a class="text-link" href={page.src} target="_blank" rel="noopener noreferrer">
+                View
+              </a>
+              <a class="text-link" href={page.src} download={page.filename}>
+                Download
+              </a>
+            </div>
+          </div>
+        </article>
+      ))}
+    </div>
+  </Section>
+
+  <Section title="About Trains and Castles">
+    <p>
+      <em>Trains and Castles</em> follows a shared journey through England from a child's
+      point of view, with trains, castles, cities, questions, and wonder at its center.
+    </p>
+    <a class="button" href="/trains-and-castles">Learn More About the Book</a>
+  </Section>
+
+  <Section title="Find the book">
+    <p>Available on Amazon.</p>
+    <a
+      class="button"
+      href="https://a.co/d/08TJjA3Z"
+      target="_blank"
+      rel="noopener noreferrer"
+    >
+      View on Amazon
+    </a>
+  </Section>
+</BaseLayout>
