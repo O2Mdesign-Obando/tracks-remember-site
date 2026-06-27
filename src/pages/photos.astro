@@ -1,0 +1,73 @@
+---
+import { readdirSync } from 'node:fs';
+import { join } from 'node:path';
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Section from '../components/Section.astro';
+
+const photosRoot = join(process.cwd(), 'public', 'journey', 'photos');
+const chapters = readdirSync(photosRoot, { withFileTypes: true })
+  .filter((entry) => entry.isDirectory())
+  .map((entry) => {
+    const chapterNumber = entry.name.replace('chapter-', '');
+    const files = readdirSync(join(photosRoot, entry.name))
+      .filter((file) => file.endsWith('.jpg'))
+      .sort((a, b) => a.localeCompare(b, undefined, { numeric: true }));
+
+    return {
+      id: entry.name,
+      number: Number(chapterNumber),
+      title: `Chapter ${Number(chapterNumber)}`,
+      photos: files.map((file, index) => ({
+        src: `/journey/photos/${entry.name}/${file}`,
+        alt: `Photo from the journey, chapter ${Number(chapterNumber)}, image ${index + 1}`,
+      })),
+    };
+  })
+  .sort((a, b) => a.number - b.number);
+
+const totalPhotos = chapters.reduce((sum, chapter) => sum + chapter.photos.length, 0);
+---
+
+<BaseLayout
+  title="Photos from the Journey | The Tracks Remember and Trains and Castles"
+  description="Photos from the journey behind The Tracks Remember and Trains and Castles."
+>
+  <main class="companion-page">
+    <section class="companion-hero">
+      <p class="eyebrow">Visual Companion</p>
+      <h1>Photos from the Journey</h1>
+      <div class="ornament" aria-hidden="true"></div>
+      <p>
+        Moments captured along the way: places, details, and scenes that shaped
+        the experience behind the books.
+      </p>
+    </section>
+
+    <Section>
+      <div class="chapter-nav" aria-label="Photo chapters">
+        {chapters.map((chapter) => (
+          <a href={`#${chapter.id}`}>{chapter.title}</a>
+        ))}
+      </div>
+      <p class="photo-count">
+        {totalPhotos} photos across {chapters.length} chapter groups.
+      </p>
+    </Section>
+
+    {chapters.map((chapter) => (
+      <Section>
+        <div id={chapter.id} class="photo-chapter-heading">
+          <h2>{chapter.title}</h2>
+          <p>{chapter.photos.length} photos</p>
+        </div>
+        <div class="photo-grid">
+          {chapter.photos.map((photo) => (
+            <a href={photo.src} target="_blank" rel="noopener noreferrer" class="photo-tile">
+              <img src={photo.src} alt={photo.alt} loading="lazy" />
+            </a>
+          ))}
+        </div>
+      </Section>
+    ))}
+  </main>
+</BaseLayout>

@@ -1,0 +1,110 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Section from '../components/Section.astro';
+
+const processSections = [
+  {
+    title: 'It Started as a Story',
+    body: [
+      'We went somewhere together. The kind of trip that stays with you, not because everything went perfectly, but because it was real. A child paying attention for the first time. A parent trying to hold it all without dropping anything. The story was there before we knew we were writing it.',
+      'Much of it was written while we were still moving: on planes, trains, and in quiet moments along the way, using only a reMarkable tablet. Without a traditional setup, the process stayed simple and uninterrupted, allowing the story to take shape in real time, close to the experience itself.',
+    ],
+  },
+  {
+    title: 'Then It Became a Comic',
+    body: [
+      "We wanted to tell it from Saul's perspective: the small observations, the overwhelm, the wonder, the way a new city looks when everything is unfamiliar. Words alone were not enough. The story needed movement. An airport, a plane, a window, a skyline appearing for the first time. Images could hold what sentences kept missing.",
+      'The writing itself was shaped and refined over time with the help of an editing partner, ChatGPT, not to change the voice, but to clarify and sharpen it. From there, the photos taken during the trip became the starting point for the illustrations, gradually evolving into the comic. That visual layer was extended with tools like Adobe Firefly, helping bring those moments into a different form while staying rooted in the original experience.',
+    ],
+    quote: 'Some moments need a page, not a paragraph.',
+    images: [
+      { src: '/journey/process/ari-pose-board.jpg', label: 'Ari' },
+      { src: '/journey/process/jorge-pose-board.jpg', label: 'Jorge' },
+      { src: '/journey/process/saul-pose-board.jpg', label: 'Saul' },
+    ],
+  },
+  {
+    title: 'Breaking It Into Moments',
+    body: [
+      'Each comic page became one beat. One feeling. One small piece of the day. Not everything needed an explanation. Sometimes a face in a window or a pair of shoes walking through a crowd said more than any caption. We learned to trust the image, and cut the rest.',
+    ],
+    images: [
+      { src: '/trains-and-castles/comics/chapter-01/page-01.png', label: 'Scene from Chapter 1' },
+      { src: '/trains-and-castles/comics/chapter-02/page-01.png', label: 'Scene from Chapter 2' },
+    ],
+  },
+  {
+    title: 'From Color to Line',
+    body: [
+      'Once the comic pages existed, we noticed something: the illustrations could become coloring pages. Strip away the fills and shading, and what remained was clean line art. The same scenes, the same characters, but open. Waiting. Ready to become whatever color someone else imagined.',
+    ],
+    quote: 'The same moment, twice. One to read. One to finish yourself.',
+    images: [
+      { src: '/covers/trains-castles.jpg', label: 'Book illustration render' },
+      { src: '/trains-and-castles/coloring-pages/coloring-travel-p00.png', label: 'Coloring version' },
+    ],
+  },
+  {
+    title: 'Making It Interactive',
+    body: [
+      'The books were finished, but the experience did not have to be. Comics to read. Pages to print and color. Reflections that did not fit the page count. A digital layer felt like the natural next step, not as a product, but as a continuation. A place to go after the last page.',
+    ],
+  },
+  {
+    title: 'Still Evolving',
+    body: [
+      'There are more chapters being drawn. More journeys planned. More coloring pages waiting to be simplified from something that started as a full illustration. The making is ongoing, which is, honestly, the most accurate thing we can say about any story.',
+    ],
+  },
+];
+---
+
+<BaseLayout
+  title="How The Tracks Remember and Trains and Castles Were Made"
+  description="How The Tracks Remember and Trains and Castles were made, from story and travel notes to comics and coloring pages."
+>
+  <main class="companion-page">
+    <section class="companion-hero">
+      <p class="eyebrow">Behind the Books</p>
+      <h1>How the Books Were Made</h1>
+      <div class="ornament" aria-hidden="true"></div>
+      <p>
+        A simple look at how the story, the comic, and the coloring pages came together.
+      </p>
+    </section>
+
+    <Section>
+      <div class="process-list">
+        {processSections.map((section, index) => (
+          <article class="process-step">
+            <p class="step-number">{String(index + 1).padStart(2, '0')}</p>
+            <h2>{section.title}</h2>
+            {section.body.map((paragraph) => <p>{paragraph}</p>)}
+            {section.quote && <blockquote>{section.quote}</blockquote>}
+            {section.images && (
+              <div class={`process-image-grid ${section.images.length === 3 ? 'three' : ''}`}>
+                {section.images.map((image) => (
+                  <figure>
+                    <img src={image.src} alt={image.label} loading="lazy" />
+                    <figcaption>{image.label}</figcaption>
+                  </figure>
+                ))}
+              </div>
+            )}
+          </article>
+        ))}
+      </div>
+    </Section>
+
+    <Section>
+      <div class="closing-note">
+        <h2>This is still evolving. So is the journey.</h2>
+        <p>
+          There are more stories to tell, more places to visit, more moments worth
+          putting on a page. This is not the end of the making. It is somewhere near
+          the beginning.
+        </p>
+      </div>
+    </Section>
+  </main>
+</BaseLayout>

@@ -1,0 +1,88 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Section from '../components/Section.astro';
+
+const reflectionSections = [
+  {
+    title: 'What Was Not in the Book',
+    items: [
+      {
+        title: 'The Moments Between Places',
+        body: 'Some of the most real parts of the trip never made it onto a page. The long silences in the taxi. The way the light changed through a dirty airport window. The feeling of being somewhere between one world and another: not quite arrived, not quite gone.',
+      },
+      {
+        title: 'The Version of Tired That Comes From Wonder',
+        body: 'There is a particular exhaustion that only happens when everything around you is new. Not the tired from work or routine. The tired from looking too hard at everything, trying to hold all of it at once. Saul had that kind of tired, even when he insisted he did not.',
+      },
+      {
+        title: 'What Saul Packed Himself',
+        body: 'He checked his bag twice before we left, then a third time at the door. Inside: three books, a drawing pad, two pens, one small stone from home, and a snack he never actually ate. Some things you carry not because you need them, but because they make leaving feel safer.',
+      },
+      {
+        title: 'The Conversation That Happened in the Car',
+        body: 'On the way to the airport, he asked one question about every ten minutes. Not big questions. Small ones. "Will there be birds there?" "Do they have the same moon?" Each one was really the same question in a different shape: will it still feel like somewhere I belong?',
+      },
+    ],
+  },
+  {
+    title: 'Small Reflections',
+    items: [
+      {
+        title: 'Some Things Kids Notice First',
+        body: 'Adults look for exits, signs, estimated times. Kids look for pigeons on the platform. Dogs being walked near the luggage carousel. A crack in the ceiling shaped like something they know. Children are paying attention to a completely different journey, and sometimes it is the better one.',
+      },
+      {
+        title: 'A City Can Feel Too Big and Still Feel Magical',
+        body: 'Edinburgh was enormous in a way that felt like it had always been there and was not particularly interested in being visited. That indifference was part of what made it beautiful. It did not perform itself for us. We were just small people in a very old place, which is exactly the right way to feel.',
+      },
+      {
+        title: 'Waiting Was Part of the Journey',
+        body: 'Airports ask you to be very patient or very anxious, and usually both at the same time. We sat in hard chairs and watched planes. Saul counted them. I watched him count. There are worse ways to spend an afternoon than watching someone notice the world for the first time.',
+      },
+      {
+        title: 'The Kind of Quiet That Follows a Full Day',
+        body: 'By evening, after the castle and the streets and the market and the rain, we did not need to say much. Dinner was simple. The room felt smaller than the day. That quiet was not emptiness. It was the sound of two people who had been somewhere together and were now resting inside it.',
+      },
+    ],
+  },
+];
+---
+
+<BaseLayout
+  title="Bonus Reflections | The Tracks Remember and Trains and Castles"
+  description="Bonus reflections and companion materials for The Tracks Remember and Trains and Castles."
+>
+  <main class="companion-page">
+    <section class="companion-hero">
+      <p class="eyebrow">Companion Material</p>
+      <h1>Bonus Reflections</h1>
+      <div class="ornament" aria-hidden="true"></div>
+      <p>
+        A few small moments beyond the printed pages: things felt, noticed,
+        remembered, or left unsaid.
+      </p>
+    </section>
+
+    {reflectionSections.map((section) => (
+      <Section title={section.title}>
+        <div class="bonus-grid">
+          {section.items.map((item) => (
+            <article class="card reflection-card">
+              <h2>{item.title}</h2>
+              <p>{item.body}</p>
+            </article>
+          ))}
+        </div>
+      </Section>
+    ))}
+
+    <Section title="Keep exploring">
+      <p>
+        These notes sit alongside the public companion materials for the books:
+        the making process, journey photos, comic chapters, and printable coloring pages.
+      </p>
+      <a class="button" href="/process">How the Books Were Made</a>
+      <a class="button button-secondary" href="/photos">Photos from the Journey</a>
+    </Section>
+  </main>
+</BaseLayout>

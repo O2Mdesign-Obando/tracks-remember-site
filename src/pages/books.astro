@@ -1,0 +1,87 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Section from '../components/Section.astro';
+
+const books = [
+  {
+    title: 'The Tracks Remember',
+    description: 'A reflective travel narrative about memory, family, place, and the quiet meaning carried by a journey across England.',
+    cover: '/covers/tracks-remember.jpg',
+    href: '/the-tracks-remember',
+    cta: 'Explore the Book',
+    amazon: 'https://a.co/d/0hTeRwq2',
+  },
+  {
+    title: 'Trains and Castles',
+    description: 'A child-friendly companion story shaped by trains, castles, curiosity, and wonder.',
+    cover: '/covers/trains-castles.jpg',
+    href: '/trains-and-castles',
+    cta: 'Explore the Book',
+    amazon: 'https://a.co/d/08TJjA3Z',
+  },
+  {
+    title: 'What Remains',
+    description: 'A bilingual book in fragments about memory, identity, connection, loss, and what remains.',
+    cover: '/covers/what-remains.jpg',
+    href: 'https://www.whatremains.site/',
+    cta: 'Visit What Remains',
+  },
+];
+---
+
+<BaseLayout
+  title="Books by Jorge R. Obando | The Tracks Remember"
+  description="Books by Jorge R. Obando connected to The Tracks Remember publishing ecosystem."
+>
+  <main class="companion-page">
+    <section class="companion-hero">
+      <p class="eyebrow">Published Work</p>
+      <h1>Books</h1>
+      <div class="ornament" aria-hidden="true"></div>
+      <p>
+        Explore the connected books in this publishing ecosystem. Full PDF and EPUB
+        downloads are intentionally held from this public page.
+      </p>
+    </section>
+
+    <Section>
+      <div class="book-pathway-grid">
+        {books.map((book) => (
+          <article class="card book-pathway-card">
+            <img src={book.cover} alt={`${book.title} book cover by Jorge R. Obando`} loading="lazy" />
+            <div>
+              <h2>{book.title}</h2>
+              <p>{book.description}</p>
+              <a
+                class="text-link"
+                href={book.href}
+                target={book.href.startsWith('http') ? '_blank' : undefined}
+                rel={book.href.startsWith('http') ? 'noopener noreferrer' : undefined}
+              >
+                {book.cta}
+              </a>
+              {book.amazon && (
+                <a
+                  class="text-link secondary-text-link"
+                  href={book.amazon}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  View on Amazon
+                </a>
+              )}
+            </div>
+          </article>
+        ))}
+      </div>
+    </Section>
+
+    <Section title="Download note">
+      <p>
+        The former Base44 page included full-book PDF and EPUB downloads. Those files
+        exist locally, but publishing full downloads changes the distribution posture
+        of the books, so they were not added here without separate approval.
+      </p>
+    </Section>
+  </main>
+</BaseLayout>
