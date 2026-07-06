@@ -15,6 +15,10 @@ const canonicalHost = 'https://www.thetracksremember.com';
 const pathname = Astro.url.pathname;
 const canonicalPath = pathname === '/' ? '/' : `${pathname.replace(/\/$/, '')}/`;
 const canonicalUrl = `${canonicalHost}${canonicalPath}`;
+const socialImagePath = canonicalPath.startsWith('/trains-and-castles/')
+  ? '/images/social/trains-and-castles-default.jpg'
+  : '/images/social/tracks-remember-default.jpg';
+const socialImageUrl = `${canonicalHost}${socialImagePath}`;
 ---
 
 <!doctype html>
@@ -30,10 +34,12 @@ const canonicalUrl = `${canonicalHost}${canonicalPath}`;
     <meta property="og:description" content={description} />
     <meta property="og:type" content="website" />
     <meta property="og:url" content={canonicalUrl} />
+    <meta property="og:image" content={socialImageUrl} />
 
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content={title} />
     <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content={socialImageUrl} />
 
     <meta name="generator" content={Astro.generator} />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
